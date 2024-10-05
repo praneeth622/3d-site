@@ -124,7 +124,7 @@ const AboutSection = () => {
               <li className="bg-gray-800 p-2 rounded">React</li>
               <li className="bg-gray-800 p-2 rounded">Node.js</li>
               <li className="bg-gray-800 p-2 rounded">TypeScript</li>
-              <li className="bg-gray-800 p-2 rounded">GraphQL</li>
+              <li className="bg-gray-800 p-2 rounded">Mysql</li>
               <li className="bg-gray-800 p-2 rounded">Next.js</li>
               <li className="bg-gray-800 p-2 rounded">AWS</li>
               <li className="bg-gray-800 p-2 rounded">Docker</li>

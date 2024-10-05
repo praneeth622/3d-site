@@ -3,6 +3,7 @@ import HeroSection from './componets/HeroSection';
 import AboutSection from './componets/About-section';
 import Navbar from './componets/Navbar';
 import Footer from './componets/Footer';
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <AboutSection id='#about' />
       </main>
       <Footer />
+      <Analytics/>
     </div>
   )
 }
