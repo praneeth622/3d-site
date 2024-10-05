@@ -10,7 +10,7 @@ export default function App() {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
-        <AboutSection />
+        <AboutSection id='#about' />
       </main>
       <Footer />
     </div>

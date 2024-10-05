@@ -7,6 +7,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import * as THREE from 'three'
 import Image2 from '../assets/texture_earth.jpg'
 import InnerBold from '../fonts/Inter-Bold.woff'
+import { SphereGeometry } from 'three'; 
 
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError] = useState(false)
@@ -23,31 +24,30 @@ const ErrorBoundary = ({ children }) => {
 }
 
 const AnimatedCube = () => {
-  const mesh = useRef()
-  const [hovered, setHover] = useState(false)
-
-  useFrame((state, delta) => {
-    if (mesh.current) {
-      mesh.current.rotation.x += delta * 0.2
-      mesh.current.rotation.y += delta * 0.2
-    }
-  })
-
-  const texture = useLoader(TextureLoader, Image2)
-
-  return (
-    <mesh
-      ref={mesh}
-      scale={hovered ? 1.1 : 1}
-      onPointerOver={() => setHover(true)}
-      onPointerOut={() => setHover(false)}
-    >
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial map={texture} />
-    </mesh>
-  )
-}
-
+    const mesh = useRef();
+    const [hovered, setHover] = useState(false);
+  
+    useFrame((state, delta) => {
+      if (mesh.current) {
+        mesh.current.rotation.x += delta * 0.4;
+        mesh.current.rotation.y += delta * 0.4;
+      }
+    });
+  
+    const texture = useLoader(TextureLoader, Image2); // Ensure Image2 is defined
+  
+    return (
+      <mesh
+        ref={mesh}
+        scale={hovered ? 1.5 : 1}
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+      >
+        <sphereGeometry args={[1, 32, 32]} /> {/* Correctly using sphereGeometry */}
+        <meshStandardMaterial map={texture} />
+      </mesh>
+    );
+  };
 const AnimatedText = () => {
   const mesh = useRef()
 
