@@ -8,16 +8,17 @@ import * as THREE from 'three'
 import Image2 from '../assets/texture_earth.jpg'
 import InnerBold from '../fonts/Inter-Bold.woff'
 import { SphereGeometry } from 'three'; 
+import { Github, Linkedin, Link  } from 'lucide-react'
 
 const ErrorBoundary = ({ children }) => {
-  const [hasError, setHasError] = useState(false)
+  const [hasError, setHasError ] = useState(false)
 
   if (hasError) {
     return <h1 className="text-center text-2xl mt-8">Something went wrong while loading 3D elements.</h1>
   }
 
   return (
-    <Suspense fallback={<div className="text-center text-2xl mt-8">Loading 3D elements...</div>}>
+    <Suspense fallback={<div className="text-center  text-2xl mt-8">Loading 3D elements...</div>}>
       {children}
     </Suspense>
   )
@@ -75,26 +76,28 @@ const AnimatedText = () => {
 const Scene = () => {
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <ambientLight intensity={0.9} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} /> 
       <AnimatedCube />
       <AnimatedText />
       <Stars />
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={true} />
     </>
   )
 }
 
 const AboutSection = () => {
   return (
-    <section className="w-full min-h-screen bg-black text-white py-16">
+    <section id="about" className="w-full min-h-screen bg-black text-white py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 h-[50vh]">
+        <group>
           <ErrorBoundary>
             <Canvas>
               <Scene />
             </Canvas>
           </ErrorBoundary>
+          </group>
         </div>
 
         <h2 className="text-4xl font-bold mb-8 text-center">My Journey</h2>
@@ -104,16 +107,16 @@ const AboutSection = () => {
             <h3 className="text-2xl font-semibold mb-4">Work Experience</h3>
             <ul className="space-y-4">
               <li>
-                <h4 className="text-xl font-medium">Senior Web Developer</h4>
-                <p className="text-gray-400">TechCorp Inc. | 2019 - Present</p>
-              </li>
-              <li>
                 <h4 className="text-xl font-medium">Full Stack Developer</h4>
-                <p className="text-gray-400">WebSolutions Ltd. | 2016 - 2019</p>
+                <p className="text-gray-400">Artly | 2024 July - Present</p>
               </li>
               <li>
-                <h4 className="text-xl font-medium">Junior Developer</h4>
-                <p className="text-gray-400">StartupX | 2014 - 2016</p>
+                <h4 className="text-xl font-medium">GDSC - Core</h4>
+                <p className="text-gray-400">IIITDM GDSC | 2024 Aug - Present</p>
+              </li>
+              <li>
+                <h4 className="text-xl font-medium">Junior Web Developer</h4>
+                <p className="text-gray-400">Skill First Labs Inc. | 2024 July - 2024 Sept</p>
               </li>
             </ul>
           </div>
@@ -133,23 +136,53 @@ const AboutSection = () => {
           </div>
         </div>
 
-        <div className="bg-gray-900 p-6 rounded-lg shadow-lg mb-12">
-          <h3 className="text-2xl font-semibold mb-4">Notable Projects</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="projects" className="bg-gray-900 p-6 rounded-lg shadow-lg mb-12">
+        <h3 className="text-2xl font-semibold mb-4">Notable Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            {/* Drop-It Project */}
             <div className="bg-gray-800 p-4 rounded">
-              <h4 className="text-xl font-medium mb-2">E-commerce Platform</h4>
-              <p className="text-gray-400">Built a scalable e-commerce solution using Next.js and GraphQL</p>
+            <h4 className="text-xl font-medium mb-2">Drop-It</h4>
+            <p className="text-gray-400">File Sharing App Using NextJs and Firebase</p>
+            <div className="flex space-x-4 mt-2">
+                <a href="https://github.com/praneeth622/DropIt" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                <Github className="h-6 w-6" />
+                </a>
+                <a href="https://dropit123.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                <Link className="h-6 w-6" />
+                </a>
             </div>
+            </div>
+
+            {/* Cycle-Hub Project */}
             <div className="bg-gray-800 p-4 rounded">
-              <h4 className="text-xl font-medium mb-2">AI-powered Chat App</h4>
-              <p className="text-gray-400">Developed a real-time chat application with AI integration</p>
+            <h4 className="text-xl font-medium mb-2">Cycle-Hub</h4>
+            <p className="text-gray-400">Cycling enthusiast platform - Discover new routes, join events, and connect with fellow cyclists.</p>
+            <div className="flex space-x-4 mt-2">
+                <a href="https://github.com/praneeth622/cycleHub" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                <Github className="h-6 w-6" />
+                </a>
+                <a href="https://cyclehub.vercel.app/login" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                <Link className="h-6 w-6" />
+                </a>
             </div>
+            </div>
+
+            {/* Recapit Project */}
             <div className="bg-gray-800 p-4 rounded">
-              <h4 className="text-xl font-medium mb-2">Blockchain Explorer</h4>
-              <p className="text-gray-400">Created a user-friendly blockchain explorer for a major cryptocurrency</p>
+            <h4 className="text-xl font-medium mb-2">Recapit</h4>
+            <p className="text-gray-400">Recapit simplifies learning by sending timely reminders and questions on your chosen topics.</p>
+            <div className="flex space-x-4 mt-2">
+                <a href="https://github.com/praneeth622/recapit-app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-300">
+                <Github className="h-6 w-6" />
+                </a>
+                
             </div>
-          </div>
+            </div>
+
         </div>
+        </div>
+
 
         <div className="text-center">
           <a

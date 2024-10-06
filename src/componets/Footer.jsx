@@ -16,14 +16,11 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white transition duration-300">
+            <a href="https://github.com/praneeth622" className="text-gray-400 hover:text-white transition duration-300">
               <Github className="h-6 w-6" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition duration-300">
+            <a href="https://www.linkedin.com/in/praneeth-devarasetty/" className="text-gray-400 hover:text-white transition duration-300">
               <Linkedin className="h-6 w-6" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition duration-300">
-              <Twitter className="h-6 w-6" />
             </a>
           </div>
         </div>
