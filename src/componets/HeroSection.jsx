@@ -1,11 +1,6 @@
 import React from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import Cyl from './Cyl'; // Assuming Cyl is your 3D object component
-import TypingEffect from 'react-typing-effect';
-import { TypeAnimation } from 'react-type-animation'
-import Animations from './Animations';
+import { TypeAnimation } from 'react-type-animation';
+import Animations from './Animations'; 
 
 export default function HeroSection() {
   return (
@@ -36,9 +31,9 @@ export default function HeroSection() {
 
         {/* Right Grid - 3D Canvas Section */}
         <div className="h-[500px]">
-            <div className='w-full h-full  px-[-20px] width="920" height="456" style="display: block; width: 736px; height: 364.8px;'>
-            <Animations/>
-        </div>
+          <div className="w-full h-full">
+            <Animations /> {/* This component should render the 3D scene */}
+          </div>
         </div>
       </div>
     </section>

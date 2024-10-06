@@ -7,7 +7,7 @@ export default function Animations() {
 
   return (
     <Canvas flat camera={{fov:30}} >
-      <OrbitControls  />
+      <OrbitControls />
       <ambientLight intensity={1} />
       <Cyl />
       

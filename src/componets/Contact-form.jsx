@@ -5,6 +5,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { OrbitControls, Sphere } from '@react-three/drei'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import Image2 from '../assets/texture_earth.jpg'
+import { Html } from '@react-three/drei';
 
 const RotatingGlobe = () => {
   const earthRef = useRef()
@@ -24,9 +25,11 @@ const RotatingGlobe = () => {
 }
 
 const GlobeLoader = () => (
+  <Html>
   <div className="flex items-center justify-center h-full">
     <div className="w-16 h-16 border-4 border-t-4 border-purple-500 rounded-full animate-spin"></div>
   </div>
+  </Html>
 )
 
 const ContactForm = () => {
@@ -89,29 +92,27 @@ const ContactForm = () => {
                   onChange={handleChange}
                   rows="4"
                   className="w-full px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  placeholder="What's you want to say?"
+                  placeholder="What do you want to say?"
                   required
-                ></textarea>
+                />
               </div>
               <button
                 type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300"
+                className="w-full px-4 py-2 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 transition duration-300"
               >
                 Send Message
               </button>
             </form>
           </div>
           <div className="w-full md:w-1/2 relative">
-            <group>
-            <Canvas camera={{ position: [0, 0, 3] }}>
-              <ambientLight intensity={0.8} />
-              <pointLight position={[10, 10, 10]} />
-              <Suspense fallback={<GlobeLoader />}>
-                <RotatingGlobe />
-              </Suspense>
-              <OrbitControls enableZoom={false} enablePan={true} enableRotate={true} />
-            </Canvas>
-            </group>
+              <Canvas camera={{ position: [0, 0, 3] }}>
+                <ambientLight intensity={0.8} />
+                <pointLight position={[10, 10, 10]} />
+                <Suspense fallback={<GlobeLoader />}>
+                  <RotatingGlobe />
+                </Suspense>
+                <OrbitControls enableZoom={false} enablePan={true} enableRotate={true} />
+              </Canvas>
             <div className="absolute inset-0 bg-gradient-to-br from-transparent to-gray-800 opacity-50"></div>
           </div>
         </div>

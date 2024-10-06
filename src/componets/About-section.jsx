@@ -9,16 +9,17 @@ import Image2 from '../assets/texture_earth.jpg'
 import InnerBold from '../fonts/Inter-Bold.woff'
 import { SphereGeometry } from 'three'; 
 import { Github, Linkedin, Link  } from 'lucide-react'
+import { Html } from '@react-three/drei';
 
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError ] = useState(false)
 
   if (hasError) {
-    return <h1 className="text-center text-2xl mt-8">Something went wrong while loading 3D elements.</h1>
+    return <Html><h1 className="text-center text-2xl mt-8">Something went wrong while loading 3D elements.</h1></Html>
   }
 
   return (
-    <Suspense fallback={<div className="text-center  text-2xl mt-8">Loading 3D elements...</div>}>
+    <Suspense fallback={<Html><div className="text-center  text-2xl mt-8">Loading 3D elements...</div></Html>}>
       {children}
     </Suspense>
   )
@@ -44,7 +45,7 @@ const AnimatedCube = () => {
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
       >
-        <sphereGeometry args={[1, 32, 32]} /> {/* Correctly using sphereGeometry */}
+         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial map={texture} />
       </mesh>
     );
@@ -91,13 +92,9 @@ const AboutSection = () => {
     <section id="about" className="w-full min-h-screen bg-black text-white py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 h-[50vh]">
-        <group>
-          <ErrorBoundary>
             <Canvas>
               <Scene />
             </Canvas>
-          </ErrorBoundary>
-          </group>
         </div>
 
         <h2 className="text-4xl font-bold mb-8 text-center">My Journey</h2>
